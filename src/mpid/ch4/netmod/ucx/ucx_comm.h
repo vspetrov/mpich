@@ -39,7 +39,7 @@ static inline int MPIDI_NM_mpi_comm_free_hook(MPIR_Comm * comm)
     MPIR_FUNC_VERBOSE_ENTER(MPID_STATE_MPIDI_NM_MPI_COMM_FREE_HOOK);
 
     mpi_errno = MPIDI_CH4U_destroy_comm(comm);
-
+    hcoll_comm_destroy(comm, NULL);
   fn_exit:
     MPIR_FUNC_VERBOSE_EXIT(MPID_STATE_MPIDI_NM_MPI_COMM_FREE_HOOK);
     return mpi_errno;
